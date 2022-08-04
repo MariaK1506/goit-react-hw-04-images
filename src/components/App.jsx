@@ -37,6 +37,10 @@ export class App extends Component {
 
       this.renderGallery();
     }
+
+    if (nextPage > 1) {
+      this.scroll();
+    }
   }
 
   renderGallery = () => {
@@ -55,7 +59,6 @@ export class App extends Component {
               'Sorry, there are no images matching your search query. Please try again.',
           });
         }
-        this.scroll();
       })
       .catch(error => this.setState({ error, status: 'rejected' }));
   };
@@ -108,7 +111,9 @@ export class App extends Component {
             <HelloMessage>What do you want to look for?</HelloMessage>
           )}
 
-          {images.length !== 0 && <Button onClick={this.loadMore} />}
+          {status === 'resolved' && images.length !== 0 && (
+            <Button onClick={this.loadMore} />
+          )}
 
           {showModal && (
             <Modal onClose={this.toggleModal}>
