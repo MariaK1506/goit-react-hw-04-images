@@ -73,8 +73,12 @@ export class App extends Component {
     this.setState(({ showModal }) => ({ showModal: !showModal }));
   };
 
+  // loadMore = () => {
+  //   this.setState(prevState => ({ page: prevState.page + 1 }));
+  // };
+
   loadMore = () => {
-    this.setState(prevState => ({ page: prevState.page + 1 }));
+    setPage(page => page + 1);
   };
 
   openImage = largeImage => {
