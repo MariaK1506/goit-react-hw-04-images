@@ -19,7 +19,7 @@ export default async function fetchImages(searchQuery, page) {
   const response = await axios.get(API_URL, {
     params: API_PARAMS,
   });
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 }
 
